@@ -3,17 +3,17 @@ import { FiPhone, FiMapPin, FiMail } from 'react-icons/fi';
 const contacts = [
 	{
 		id: 1,
-		name: 'Your Address, Your City, Your Country',
+		name: 'B 610, Prahladnagar Trade center, behind titanium city center, Ahmedabad, India 380015',
 		icon: <FiMapPin />,
 	},
 	{
 		id: 2,
-		name: 'email@domain.com',
+		name: 'nirmesh.quickdiv@gmail.com',
 		icon: <FiMail />,
 	},
 	{
 		id: 3,
-		name: '555 8888 888',
+		name: '+91 70164 98078',
 		icon: <FiPhone />,
 	},
 ];

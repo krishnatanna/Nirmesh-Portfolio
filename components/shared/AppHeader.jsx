@@ -1,17 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon, FiX, FiMenu } from 'react-icons/fi';
 import HireMeModal from '../HireMeModal';
-import logoLight from '../../public/images/logo-light.svg';
-import logoDark from '../../public/images/logo-dark.svg';
 import useThemeSwitcher from '../../hooks/useThemeSwitcher';
 
 function AppHeader() {
 	const [showMenu, setShowMenu] = useState(false);
 	const [showModal, setShowModal] = useState(false);
 	const [activeTheme, setTheme] = useThemeSwitcher();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	function toggleMenu() {
 		if (!showMenu) {
@@ -48,59 +50,47 @@ function AppHeader() {
 				<div className="flex justify-between items-center px-4 sm:px-0">
 					<div>
 						<Link href="/">
-							{activeTheme === 'dark' ? (
-								<Image
-									src={logoDark}
-									className="w-36 cursor-pointer"
-									alt="Dark Logo"
-									width={150}
-									height={120}
-								/>
-							) : (
-								<Image
-									src={logoLight}
-									className="w-36 cursor-pointer"
-									alt="Dark Logo"
-									width={150}
-									height={120}
-								/>
-							)}
+							<h1 className="text-2xl font-bold text-primary-dark dark:text-ternary-light">
+								Nirmesh&apos;s Portfolio
+							</h1>
 						</Link>
 					</div>
-
-					{/* Theme switcher small screen */}
-					<div
-						onClick={() => setTheme(activeTheme)}
-						aria-label="Theme Switcher"
-						className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
-					>
-						{activeTheme === 'dark' ? (
-							<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
-						) : (
-							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
-						)}
-					</div>
-
-					{/* Small screen hamburger menu */}
-					<div className="sm:hidden">
-						<button
-							onClick={toggleMenu}
-							type="button"
-							className="focus:outline-none"
-							aria-label="Hamburger Menu"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 24 24"
-								className="h-7 w-7 fill-current text-secondary-dark dark:text-ternary-light"
+					<div className="flex items-center">
+						{mounted && (
+							<div
+								onClick={() => setTheme(activeTheme)}
+								aria-label="Theme Switcher"
+								className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
 							>
-								{showMenu ? (
-									<FiX className="text-3xl" />
+								{activeTheme === 'dark' ? (
+									<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
 								) : (
-									<FiMenu className="text-3xl" />
+									<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
 								)}
-							</svg>
-						</button>
+							</div>
+						)}
+
+						{/* Small screen hamburger menu */}
+						<div className="sm:hidden">
+							<button
+								onClick={toggleMenu}
+								type="button"
+								className="focus:outline-none"
+								aria-label="Hamburger Menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									className="h-7 w-7 fill-current text-secondary-dark dark:text-ternary-light"
+								>
+									{showMenu ? (
+										<FiX className="text-3xl" />
+									) : (
+										<FiMenu className="text-3xl" />
+									)}
+								</svg>
+							</button>
+						</div>
 					</div>
 				</div>
 
@@ -112,29 +102,36 @@ function AppHeader() {
 							: 'hidden'
 					}
 				>
-					<div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
-						<Link href="/projects" aria-label="Projects">
-							Projects
-						</Link>
-					</div>
-					<div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="/about" aria-label="About Me">
-							About Me
-						</Link>
-					</div>
-					<div className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="/contact" aria-label="Contact">
-							Contact
-						</Link>
-					</div>
-					<div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<button
-							onClick={showHireMeModal}
-							className="font-general-medium sm:hidden block text-left text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
-							aria-label="Hire Me Button"
-						>
-							Hire Me
-						</button>
+					<div className="text-center">
+						<div className="block text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
+							<Link href="/" aria-label="Home" passHref>
+								Home
+							</Link>
+						</div>
+						<div className="block text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2">
+							<Link href="/projects" aria-label="Projects" passHref>
+								Projects
+							</Link>
+						</div>
+						<div className="block text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
+							<Link href="/about" aria-label="About Me" passHref>
+								About Me
+							</Link>
+						</div>
+						<div className="block text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
+							<Link href="/contact" aria-label="Contact" passHref>
+								Contact
+							</Link>
+						</div>
+						<div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
+							<button
+								onClick={showHireMeModal}
+								className="font-general-medium sm:hidden block text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-300 w-24"
+								aria-label="Hire Me Button"
+							>
+								Hire Me
+							</button>
+						</div>
 					</div>
 				</div>
 
@@ -142,27 +139,33 @@ function AppHeader() {
 				<div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
 					<div
 						className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+						aria-label="Home"
+					>
+						<Link href="/" passHref>Home</Link>
+					</div>
+					<div
+						className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
 						aria-label="Projects"
 					>
-						<Link href="/projects">Projects</Link>
+						<Link href="/projects" passHref>Projects</Link>
 					</div>
 					<div
 						className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
 						aria-label="About Me"
 					>
-						<Link href="/about">About Me</Link>
+						<Link href="/about" passHref>About Me</Link>
 					</div>
 
 					<div
 						className="block text-left text-lg font-medium text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
 						aria-label="Contact"
 					>
-						<Link href="/contact">Contact</Link>
+						<Link href="/contact" passHref>Contact</Link>
 					</div>
 				</div>
 
 				{/* Header right section buttons */}
-				<div className="hidden sm:flex justify-between items-center flex-col md:flex-row">
+				<div className="hidden sm:flex justify-end items-center flex-col md:flex-row">
 					<div className="hidden md:flex">
 						<button
 							onClick={showHireMeModal}
@@ -174,17 +177,19 @@ function AppHeader() {
 					</div>
 
 					{/* Theme switcher large screen */}
-					<div
-						onClick={() => setTheme(activeTheme)}
-						aria-label="Theme Switcher"
-						className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
-					>
-						{activeTheme === 'dark' ? (
-							<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
-						) : (
-							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
-						)}
-					</div>
+					{mounted && (
+						<div
+							onClick={() => setTheme(activeTheme)}
+							aria-label="Theme Switcher"
+							className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
+						>
+							{activeTheme === 'dark' ? (
+								<FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
+							) : (
+								<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 			<div>
@@ -194,7 +199,6 @@ function AppHeader() {
 						onRequest={showHireMeModal}
 					/>
 				) : null}
-				{showModal ? showHireMeModal : null}
 			</div>
 		</motion.nav>
 	);

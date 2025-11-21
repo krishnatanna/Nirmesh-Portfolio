@@ -22,14 +22,12 @@ const ProjectSingle = (props) => {
 				passHref
 			>
 				<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
-					<div>
+					<div className="relative h-64">
 						<Image
 							src={props.img}
-							className="rounded-t-xl border-none"
+							className="rounded-t-xl border-none object-cover"
 							alt="Single Project"
-							layout="responsive"
-							width={100}
-							height={90}
+							fill
 						/>
 					</div>
 					<div className="text-center px-4 py-6">

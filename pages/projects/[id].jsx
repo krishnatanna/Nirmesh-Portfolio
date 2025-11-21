@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { FiClock, FiTag } from 'react-icons/fi';
 import PagesMetaHead from '../../components/PagesMetaHead';
 import { projectsData } from '../../data/projectsData';
-import RelatedProjects from '../../components/projects/RelatedProjects';
 
 function ProjectSingle(props) {
 	return (
@@ -34,15 +33,12 @@ function ProjectSingle(props) {
 			<div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-10 mt-12">
 				{props.project.ProjectImages.map((project) => {
 					return (
-						<div className="mb-10 sm:mb-0" key={project.id}>
+						<div className="relative h-64 mb-10 sm:mb-0" key={project.id}>
 							<Image
 								src={project.img}
-								className="rounded-xl cursor-pointer shadow-lg sm:shadow-none"
+								className="rounded-xl cursor-pointer shadow-lg sm:shadow-none object-cover"
 								alt={project.title}
-								key={project.id}
-								layout="responsive"
-								width={100}
-								height={90}
+								fill
 							/>
 						</div>
 					);
@@ -65,19 +61,8 @@ function ProjectSingle(props) {
 											className="font-general-regular text-ternary-dark dark:text-ternary-light"
 											key={info.id}
 										>
-											<span>{info.title}: </span>
-											<a
-												href="https://stoman.me"
-												className={
-													info.title === 'Website' ||
-													info.title === 'Phone'
-														? 'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'
-														: ''
-												}
-												aria-label="Project Website and Phone"
-											>
-												{info.details}
-											</a>
+											<strong>{info.title}: </strong>
+											<span>{info.details}</span>
 										</li>
 									);
 								}
@@ -140,29 +125,36 @@ function ProjectSingle(props) {
 					</p>
 					{props.project.ProjectInfo.ProjectDetails.map((details) => {
 						return (
-							<p
+							<div
 								key={details.id}
 								className="font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light"
-							>
-								{details.details}
-							</p>
+								dangerouslySetInnerHTML={{
+									__html: details.details,
+								}}
+							></div>
 						);
 					})}
 				</div>
 			</div>
-
-			<RelatedProjects />
 		</div>
 	);
 }
 
 export async function getServerSideProps({ query }) {
 	const { id } = query;
+	const project = projectsData.filter(
+		(project) => project.id === parseInt(id)
+	)[0];
+
+	if (!project) {
+		return {
+			notFound: true,
+		};
+	}
+
 	return {
 		props: {
-			project: projectsData.filter(
-				(project) => project.id === parseInt(id)
-			)[0],
+			project,
 		},
 	};
 }
