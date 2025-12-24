@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FiArrowDownCircle } from 'react-icons/fi';
+import useThemeSwitcher from '../../hooks/useThemeSwitcher';
+
 function AppBanner() {
+	const [activeTheme] = useThemeSwitcher();
 
 	return (
 		<motion.section
@@ -21,7 +24,7 @@ function AppBanner() {
 					}}
 					className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
 				>
-					Hi, Iam Nirmesh
+					Hi, I am Nirmesh
 				</motion.h1>
 				<motion.p
 					initial={{ opacity: 0 }}
@@ -67,7 +70,11 @@ function AppBanner() {
 			>
 				<div className="relative w-full h-96">
 					<Image
-						src="/images/developer-dark.svg"
+						src={
+							activeTheme === 'dark'
+								? '/images/developer.svg'
+								: '/images/developer-dark.svg'
+						}
 						alt="Developer"
 						fill
 						className="object-contain"
@@ -80,3 +87,4 @@ function AppBanner() {
 }
 
 export default AppBanner;
+

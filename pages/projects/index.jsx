@@ -6,7 +6,7 @@ function index() {
 		<div className="container mx-auto">
 			<PagesMetaHead title="Projects" />
 
-			<ProjectsGrid />
+			<ProjectsGrid showFilter={true} />
 		</div>
 	);
 }

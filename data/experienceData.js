@@ -2,7 +2,7 @@ export const experienceData = [
 	{
 		id: 1,
 		company: 'QuickDIV',
-		role: 'Founder & CTO',
+		role: 'Co-Founder & CTO',
 		companyLink: 'QuickDIV',
 		duration: 'Mar 2024 – Present',
 		location: 'Ahmedabad, India (Hybrid)',

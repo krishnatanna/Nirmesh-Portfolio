@@ -649,7 +649,6 @@ export const projectsData = [
 						'Next.js',
 						'OpenAI API',
 						'OAuth',
-						'Video Stabilization',
 						'ExpressJS',
 						'MongoDB',
 						'Figma',

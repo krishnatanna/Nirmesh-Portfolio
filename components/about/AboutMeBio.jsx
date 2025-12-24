@@ -3,7 +3,7 @@ import { aboutMeData } from '../../data/aboutMeData';
 import BioWithHighlighting from '../reusable/BioWithHighlighting';
 
 function AboutMeBio() {
-	const { bio } = aboutMeData[0];
+	const { heading, bio } = aboutMeData[0];
 	const bioParagraphs = bio.split('\n\n');
 
 	return (
@@ -19,6 +19,9 @@ function AboutMeBio() {
 			</div>
 
 			<div className="font-general-regular w-full sm:w-3/4 text-left">
+				<h2 className="text-3xl font-bold mb-4 text-primary-dark dark:text-primary-light">
+					{heading}
+				</h2>
 				{bioParagraphs.map((paragraph, index) => (
 					<BioWithHighlighting key={index} bio={paragraph} />
 				))}
