@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BioWithHighlighting = ({ bio }) => {
+const BioWithHighlighting = ({ bio, className }) => {
 	const renderBio = () => {
 		const parts = bio.split(/(\*\*.*?\*\*)/g);
 		return parts.map((part, index) => {
@@ -16,7 +16,7 @@ const BioWithHighlighting = ({ bio }) => {
 	};
 
 	return (
-		<p className="mb-4 text-ternary-dark dark:text-ternary-light text-lg">
+		<p className={`mb-4 text-ternary-dark dark:text-ternary-light text-lg ${className}`}>
 			{renderBio()}
 		</p>
 	);

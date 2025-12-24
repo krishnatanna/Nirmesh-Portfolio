@@ -16,9 +16,6 @@ function about() {
 				exit={{ opacity: 0 }}
 				className="container mx-auto"
 			>
-				<div className="text-center">
-					<h1 className="text-3xl font-bold mb-6 py-4 border-b-2 border-gray-200 dark:border-gray-800">About Me</h1>
-				</div>
 				<AboutMeBio />
 			</motion.div>
 
