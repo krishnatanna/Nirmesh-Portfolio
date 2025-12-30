@@ -9,7 +9,6 @@ export const projectsData = [
 		img: '/images/delivery/3.jpg',
 		ProjectHeader: {
 			title: 'Food Delivery & Grocery Ordering App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Mobile Application',
 		},
 		ProjectImages: [
@@ -107,7 +106,6 @@ export const projectsData = [
 		img: '/images/Solar_Energy/1.jpg',
 		ProjectHeader: {
 			title: 'Solarex – Smart Energy Management Web App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Web Application',
 		},
 		ProjectImages: [
@@ -205,7 +203,6 @@ export const projectsData = [
 		img: '/images/ERM-App/1.jpg',
 		ProjectHeader: {
 			title: 'Finlo – Smart AI-Powered Energy Management App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Mobile Application',
 		},
 		ProjectImages: [
@@ -303,7 +300,6 @@ export const projectsData = [
 		img: '/images/Car-Inspection-App/1.jpg',
 		ProjectHeader: {
 			title: 'AutoInspect – Smart Vehicle Inspection & Valuation App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Mobile Application',
 		},
 		ProjectImages: [
@@ -400,7 +396,6 @@ export const projectsData = [
 		img: '/images/Buisness_Managment_Web_App/1.jpg',
 		ProjectHeader: {
 			title: 'FISHBOWL - Data-Driven Business Management Web App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Mobile Application',
 		},
 		ProjectImages: [
@@ -497,7 +492,6 @@ export const projectsData = [
 		img: '/images/furniture-webapp/2.jpg',
 		ProjectHeader: {
 			title: 'FurniSpace – Furniture Shopping Web App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Web Application',
 		},
 		ProjectImages: [
@@ -595,7 +589,6 @@ export const projectsData = [
 		img: '/images/AI-Image-creation/13.jpg',
 		ProjectHeader: {
 			title: 'ImaginAI – AI Image Generation Web App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Web Application',
 		},
 		ProjectImages: [
@@ -693,7 +686,6 @@ export const projectsData = [
 		img: '/images/WareHouse_Managment_App/1.jpg',
 		ProjectHeader: {
 			title: 'NaveXa – Smart Warehouse Tracking & Management App',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Mobile Application',
 		},
 		ProjectImages: [
@@ -791,7 +783,6 @@ export const projectsData = [
 		img: '/images/CRM_Tool/1.jpg',
 		ProjectHeader: {
 			title: 'LeadFlow – Smart CRM Web App for Sales Teams',
-			publishDate: 'Jul 26, 2021',
 			tags: 'Web Application',
 		},
 		ProjectImages: [

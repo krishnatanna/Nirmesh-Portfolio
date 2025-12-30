@@ -6,18 +6,21 @@ const contacts = [
 		label: 'Address',
 		name: 'B 610, Prahladnagar Trade center, behind titanium city center, Ahmedabad, India 380015',
 		icon: <FiMapPin />,
+		href: 'https://www.google.com/maps/search/?api=1&query=B+610%2C+Prahladnagar+Trade+center%2C+behind+titanium+city+center%2C+Ahmedabad%2C+India+380015',
 	},
 	{
 		id: 2,
 		label: 'Email',
 		name: 'nirmesh.quickdiv@gmail.com',
 		icon: <FiMail />,
+		href: 'mailto:nirmesh.quickdiv@gmail.com',
 	},
 	{
 		id: 3,
 		label: 'Phone',
 		name: '+91 70164 98078',
 		icon: <FiPhone />,
+		href: 'tel:+917016498078',
 	},
 ];
 
@@ -42,9 +45,15 @@ function ContactDetails() {
 									<p className="text-gray-500 dark:text-gray-400">
 										{contact.label}
 									</p>
-									<p className="text-primary-dark dark:text-primary-light">
+									<a
+										href={contact.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-primary-dark dark:text-primary-light hover:underline"
+										aria-label={contact.label}
+									>
 										{contact.name}
-									</p>
+									</a>
 								</div>
 							</div>
 						</div>

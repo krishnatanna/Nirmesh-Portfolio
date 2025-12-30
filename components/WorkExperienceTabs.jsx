@@ -41,12 +41,18 @@ const WorkExperienceTabs = () => {
 					>
 						<h3 className="text-xl font-bold text-primary-dark dark:text-primary-light">
 							{activeExperience.role}{' '}
-							<a
-								href="#"
-								className="text-blue-500 hover:underline"
-							>
-								@{activeExperience.companyLink}
-							</a>
+							{!['Emway', 'Simform', 'Infowearhouse'].includes(activeExperience.company) && activeExperience.companyLink ? (
+								<a
+									href={activeExperience.companyLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-blue-500 hover:underline"
+								>
+									@{activeExperience.company}
+								</a>
+							) : (
+								<span className="text-blue-500">@{activeExperience.company}</span>
+							)}
 						</h3>
 						<p className="text-sm text-ternary-dark dark:text-ternary-light mt-1">
 							{activeExperience.duration} &middot;{' '}

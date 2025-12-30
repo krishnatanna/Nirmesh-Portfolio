@@ -29,7 +29,19 @@ const ExperienceTimeline = () => {
 							<div className="w-full md:w-5/12">
 								<div className="bg-white dark:bg-zinc-900 p-4 rounded-md shadow-md">
 									<p className="text-lg font-bold text-primary-dark dark:text-primary-light">
-										{experience.date} | {experience.role} – {experience.company}
+										{experience.date} | {experience.role} –{' '}
+										{!['Emway', 'Simform', 'Infowearhouse'].includes(experience.company) && experience.companyLink ? (
+											<a
+												href={experience.companyLink}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-blue-500 hover:underline"
+											>
+												{experience.company}
+											</a>
+										) : (
+											<span className="text-blue-500">{experience.company}</span>
+										)}
 									</p>
 									<p className="text-ternary-dark dark:text-ternary-light mt-2">
 										{experience.description}

@@ -1,14 +1,15 @@
 export const experienceData = [
 	{
 		id: 1,
-		company: 'QuickDIV',
-		role: 'Co-Founder & CTO',
-		companyLink: 'QuickDIV',
+		company: 'Emway',
+		role: 'Principal Engineer',
+		companyLink: 'Emway',
 		duration: 'Mar 2024 – Present',
-		location: 'Ahmedabad, India (Hybrid)',
+		location: 'Michigan, USA (Remote)',
 		highlights: [
-			'Leading MVP and AI product development for global startups',
-			'Architected scalable SaaS tools with Full-Stack ownership',
+			'Developed and maintained multiple web tools used by thousands of ABOs across the globe.',
+			'Built REST APIs and microservices in Golang, Node.js, and Python with AWS Lambda.',
+			'Participated in sprint planning, architectural discussions, and cross-team collaboration.',
 		],
 	},
 	{
@@ -16,11 +17,12 @@ export const experienceData = [
 		company: 'Simform',
 		role: 'Lead Engineer',
 		companyLink: 'Simform',
-		duration: 'Jun 2020 – Apr 2024',
+		duration: 'Jun 2020 – Apr 2022',
 		location: 'Ahmedabad, India',
 		highlights: [
-			'Scaled microservices architecture across multiple enterprise platforms',
-			'Mentored junior devs and improved system performance',
+			'Lead end-to-end development of high-traffic modules across Web, Admin, and Mobile interfaces.',
+			'Modernized legacy codebases by migrating to scalable microservices using Node.js and TypeScript.',
+			'Implemented complex real-time bidding systems using WebSockets, Redis, and RabbitMQ.',
 		],
 		subRoles: [
 			{
@@ -40,6 +42,10 @@ export const experienceData = [
 		companyLink: 'Infowearhouse',
 		duration: 'May 2015 – May 2016',
 		location: 'Ahmedabad, India',
-		highlights: ['Contributed to legacy ERP systems and internal platforms'],
+		highlights: [
+			'Contributed to legacy ERP systems and internal platforms',
+			'Developed profile and preference management APIs.',
+			'Developed moderation features in admin dashboard.',
+		],
 	},
 ];
